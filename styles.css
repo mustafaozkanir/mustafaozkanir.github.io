@@ -1,0 +1,80 @@
+body {
+  background-color: #fff7f0;
+  color: #2d2d2d;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #f97316; /* Orange-500 */
+  color: #fff;
+  padding: 1rem 2rem;
+}
+
+nav a {
+  margin-right: 1.5rem;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+}
+
+section {
+  padding: 2rem;
+  border-bottom: 1px solid #fdba74; /* Orange-300 */
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1;
+  padding: 2rem;
+}
+
+.footer {
+  background-color: #f97316; /* Zenitsu orange */
+  padding: 1.2rem 2rem;
+  font-family: 'Poppins', sans-serif;
+  color: #111;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10rem; /* spacing between email - icons - text */
+}
+
+.email-icon {
+  height: 36px;
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.social-icons a img {
+  height: 24px;
+  vertical-align: middle;
+}
+
+.hosted {
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.lightning {
+  filter: brightness(1.5);
+  font-size: 1.2rem;
+}
+
