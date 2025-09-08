@@ -155,7 +155,7 @@ body::before {
 
 /* About Section */
 .about-section {
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.8);
     padding: 2rem;
     border-radius: 12px;
     margin-bottom: 3rem;
@@ -342,6 +342,26 @@ body::before {
     border-color: var(--gold-accent);
     transform: translateY(-2px);
 }
+
+/* Close Details*/
+.close-details-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: var(--ink-black);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.close-details-button:hover {
+    color: var(--leather-brown);
+    transform: scale(1.2);
+}
+
 
 /* Responsive Design */
 @media (max-width: 768px) {
