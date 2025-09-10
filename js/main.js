@@ -12,6 +12,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     projectDetails.style.visibility = 'hidden';
 
+    /**  Project Item and Details Container Logic:
+    * Decision 1: If currently no container is currently open, a hover over a project item opens its details container.
+    * Decision 2: An opened container remains open until one of the followings happen:
+    *               * Decision 2.1: User clicks close button.
+    *               * Decision 2.2: User clicks somewhere outside the details container.
+    *               * Decision 2.3: User clicks on another project item. (Also see Decision 3)
+    * Decision 3: If currently a details container is open, no hover works.
+    * */
+   
     // Add click event listeners to project items
     projectItems.forEach(item => {
         item.addEventListener('click', () => {
@@ -20,8 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Populate details
             detailsTitle.textContent = data.title;
-            detailsDescription.textContent = data.description;
-            detailsTech.textContent = data.tech;
+            detailsDescription.innerHTML = data.description;
             detailsGithub.href = data.github;
             detailsDemo.href = data.demo;
             
@@ -61,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Populate details
                 detailsTitle.textContent = data.title;
-                detailsDescription.textContent = data.description;
+                detailsDescription.innerHTML = data.description;
                 detailsTech.textContent = data.tech;
                 detailsGithub.href = data.github;
                 detailsDemo.href = data.demo;
@@ -72,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-
+    /***** Project Item and Details Container Opening Closing Logic *****/
 
     
 });
