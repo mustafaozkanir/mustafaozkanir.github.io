@@ -279,7 +279,7 @@ body::before {
     border-radius: 15px;
     box-shadow: 0 16px 48px rgba(44, 24, 16, 0.2);
     border: 1px solid rgba(139, 69, 19, 0.2);
-    max-width: 400px;
+    max-width: 650px;
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
@@ -308,6 +308,13 @@ body::before {
     margin-bottom: 1rem;
     line-height: 1.5;
     font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1rem;
+}
+
+.section-divider {
+    border: none;
+    border-top: 1px solid rgba(139, 69, 19, 0.2);
+    margin: 1rem 0;
 }
 
 .details-tech {
@@ -408,6 +415,14 @@ body::before {
     .details-links {
         flex-direction: column;
     }
+}
+
+.main-content-wrapper {
+    transition: transform 0.3s ease;
+}
+
+.main-content-wrapper.shift-left {
+    transform: translateX(-250px);
 }
 
 @media (max-width: 480px) {

@@ -9,11 +9,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const detailsTech = document.getElementById('details-tech');
     const detailsGithub = document.getElementById('details-github');
     const detailsDemo = document.getElementById('details-demo');
+    const mainContent = document.querySelector('.main-content-wrapper');
 
     projectDetails.style.visibility = 'hidden';
 
     /**  Project Item and Details Container Logic:
-    * Decision 1: If currently no container is currently open, a hover over a project item opens its details container.
+    * Decision 1: If currently no container is currently open, a hover over a project item opens its details container. (Disabled for now)
     * Decision 2: An opened container remains open until one of the followings happen:
     *               * Decision 2.1: User clicks close button.
     *               * Decision 2.2: User clicks somewhere outside the details container.
@@ -30,21 +31,18 @@ document.addEventListener('DOMContentLoaded', function() {
             // Populate details
             detailsTitle.textContent = data.title;
             detailsDescription.innerHTML = data.description;
+            detailsTech.textContent = data.tech;
             detailsGithub.href = data.github;
             detailsDemo.href = data.demo;
             
             // Show details
-            projectDetails.style.opacity = '1';
-            projectDetails.style.visibility = 'visible';
+            showDetails();
         });
     });
 
     // Handle close button click
     if (closeDetailsButton) {
-        closeDetailsButton.addEventListener('click', () => {
-            projectDetails.style.opacity = '0';
-            projectDetails.style.visibility = 'hidden';
-        });
+        closeDetailsButton.addEventListener('click', hideDetails);
     }
 
     // Handle clicks outside the panel (global listener)
@@ -54,13 +52,12 @@ document.addEventListener('DOMContentLoaded', function() {
             e.target.closest('.project-item') === null && 
             projectDetails.style.visibility !== 'hidden') {
             
-            projectDetails.style.opacity = '0';
-            projectDetails.style.visibility = 'hidden';
+            hideDetails();
         }
     });
 
     // Add hover event listeners for conditional hover behavior
-    projectItems.forEach(item => {
+    /*projectItems.forEach(item => {
         item.addEventListener('mouseenter', () => {
             // Only show hover details if no panel is currently open
             if (projectDetails.style.visibility === 'hidden') {
@@ -75,12 +72,25 @@ document.addEventListener('DOMContentLoaded', function() {
                 detailsDemo.href = data.demo;
                 
                 // Show details
-                projectDetails.style.opacity = '1';
-                projectDetails.style.visibility = 'visible';
+                showDetails();
             }
         });
-    });
+    });*/
     /***** Project Item and Details Container Opening Closing Logic *****/
+
+    // Function to show details and shift content
+    function showDetails() {
+        projectDetails.style.opacity = '1';
+        projectDetails.style.visibility = 'visible';
+        mainContent.classList.add('shift-left');
+    }
+
+    // Function to hide details and return content
+    function hideDetails() {
+        projectDetails.style.opacity = '0';
+        projectDetails.style.visibility = 'hidden';
+        mainContent.classList.remove('shift-left');
+    }
 
     
 });

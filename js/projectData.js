@@ -15,9 +15,13 @@ const projectData = {
                 <li><strong>Scale:</strong> Generated ~6,000 QA pairs and ~4,000 QAE pairs using an 8-bit quantized <strong>LLaMA 3.3 70B</strong> model.</li>
                 <li><strong>User Interface:</strong> Built a frontend with <strong>Gradio</strong> to adjust pipeline parameters and a <strong>Flask</strong> backend for seamless interaction.</li>
             </ul>
+            <hr class="section-divider">
             <p>
                 This pipeline generates the data required for fine-tuning and evaluating LLMs, helping to keep their knowledge up-to-date with current events and developments in Turkey.
             </p>
+            <hr class="section-divider">
+
+            
         `,        
         tech: 'Python, Langchain, Pandas, Flask, Gradio, Git',
         github: 'https://github.com/mustafaozkanir/',
