@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const detailsTitle = document.getElementById('details-title');
     const detailsDescription = document.getElementById('details-description');
     const detailsTech = document.getElementById('details-tech');
-    const detailsGithub = document.getElementById('details-github');
-    const detailsDemo = document.getElementById('details-demo');
+    // const detailsGithub = document.getElementById('details-github');
+    // const detailsDemo = document.getElementById('details-demo');
     const mainContent = document.querySelector('.main-content-wrapper');
 
     projectDetails.style.visibility = 'hidden';
@@ -32,8 +32,9 @@ document.addEventListener('DOMContentLoaded', function() {
             detailsTitle.textContent = data.title;
             detailsDescription.innerHTML = data.description;
             detailsTech.textContent = data.tech;
-            detailsGithub.href = data.github;
-            detailsDemo.href = data.demo;
+            // detailsGithub.href = data.github;
+            // detailsDemo.href = data.demo;
+            updateProjectLinks(data);
             
             // Show details
             showDetails();
@@ -68,8 +69,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 detailsTitle.textContent = data.title;
                 detailsDescription.innerHTML = data.description;
                 detailsTech.textContent = data.tech;
-                detailsGithub.href = data.github;
-                detailsDemo.href = data.demo;
+                // detailsGithub.href = data.github;
+                // detailsDemo.href = data.demo;
+                updateProjectLinks(data);
                 
                 // Show details
                 showDetails();
@@ -92,5 +94,33 @@ document.addEventListener('DOMContentLoaded', function() {
         mainContent.classList.remove('shift-left');
     }
 
-    
+    // In your click/hover event handlers, replace the link population with:
+    function updateProjectLinks(project) {
+        const detailsLinks = document.getElementById('details-links');
+        let linksHTML = '';
+        
+        if (project.hasGithub) {
+            linksHTML += `
+                <a href="${project.github}" id="details-github" target="_blank">
+                    <i class="fab fa-github"></i> View Code
+                </a>
+            `;
+        } else {
+            linksHTML += `
+                <span class="private-code">
+                    <i class="fas fa-lock"></i> Code is Private
+                </span>
+            `;
+        }
+        
+        if (project.hasDemo) {
+            linksHTML += `
+                <a href="${project.demo}" id="details-demo" target="_blank">
+                    <i class="fas fa-external-link-alt"></i> Demo Video
+                </a>
+            `;
+        }
+        
+        detailsLinks.innerHTML = linksHTML;
+    }
 });
