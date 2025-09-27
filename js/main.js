@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
         mainContent.classList.remove('shift-left');
     }
 
-    // In your click/hover event handlers, replace the link population with:
+    // Currently if it has a Git
     function updateProjectLinks(project) {
         const detailsLinks = document.getElementById('details-links');
         let linksHTML = '';
